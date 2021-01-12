@@ -1,0 +1,33 @@
+﻿@model List<Comment>
+
+@{
+    ViewBag.Title = "Comments";
+}
+
+<h2>Comments</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Body</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Post ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comment in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Comment", asp-action="GetById" asp-route-id="@comment.ID">View</a>
+                </td>
+                <td>@comment.Body</td>
+                <td>@comment.Email</td>
+                <td>@comment.Name</td>
+                <td>@comment.PostId</td>
+            </tr>
+        }
+    </tbody>
+</table>
